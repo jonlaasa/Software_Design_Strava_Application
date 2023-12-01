@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="bin" path="src"/>
+	<classpathentry kind="var" path="JRE_LIB" rootpath="JRE_SRCROOT" sourcepath="JRE_SRC"/>
+	<classpathentry kind="lib" path="C:/SoftLabs/SD/sd-lab23-24/TW2/Facebook_Server/lib/json-20171018.jar"/>
+	<classpathentry kind="con" path="C:/SoftLabs/SD/sd-lab23-24/TW2/Facebook_Server/bin"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
