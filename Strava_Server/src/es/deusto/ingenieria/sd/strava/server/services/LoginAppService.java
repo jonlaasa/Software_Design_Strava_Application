@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
 
+import es.deusto.ingenieria.sd.strava.server.data.dao.UserDAO;
 import es.deusto.ingenieria.sd.strava.server.data.domain.User;
 import es.deusto.ingenieria.sd.strava.server.gateway.Factory;
 
@@ -14,9 +15,7 @@ public class LoginAppService {
 	
 	//here the user list of challenge /sessions or active challenges wont be updated
 	//( in this version)
-	
-	private Map<String, User> registrationState = new HashMap<>();
-	private String[] listo=new String[4]; 
+		private String[] listo=new String[4]; 
 	
 	
 
@@ -26,7 +25,9 @@ public class LoginAppService {
 	
 	
 	public boolean regist(User user) {
-		if(registrationState.containsKey(user.getEmail())) {
+		
+		User u = UserDAO.getInstance().find(user.getEmail());
+		if(u != null) {
 			return false;
 		}
 		else {
@@ -35,7 +36,7 @@ public class LoginAppService {
 				//CALL GATEWAY
 				Factory.getInstance(listo).createGateway(user.getProvider()).register(user.getEmail(), user.getPassword());
 			
-				registrationState.put(user.getEmail(), user);
+				UserDAO.getInstance().store(u);
 				return true;
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
@@ -67,9 +68,9 @@ public class LoginAppService {
 
 
 	public User login(String email, String password , String provider) {
-		//TODO: Get User using DAO and check 		
-		if(registrationState.containsKey(email)) {
-			User u = registrationState.get(email);
+		//TODO: Get User using DAO and check
+		User u = UserDAO.getInstance().find(email);
+		if(u!=null) {
 			try {
 				if(Factory.getInstance(listo).createGateway(provider).login(email, password)){
 					return u;
@@ -96,18 +97,6 @@ public class LoginAppService {
 	}
 
 
-	public Map<String, User> getRegistrationState() {
-		return registrationState;
-	}
-
-
-	public void setRegistrationState(Map<String, User> registrationState) {
-		this.registrationState = registrationState;
-	}
-
-
-	
-	
 	public String[] getListo() {
 		return listo;
 	}

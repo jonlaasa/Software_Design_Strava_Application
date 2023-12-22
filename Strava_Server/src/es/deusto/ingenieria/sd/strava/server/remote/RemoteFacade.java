@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import es.deusto.ingenieria.sd.strava.server.data.dao.ChallengeDAO;
 import es.deusto.ingenieria.sd.strava.server.data.domain.Challenge;
 import es.deusto.ingenieria.sd.strava.server.data.domain.Session;
 import es.deusto.ingenieria.sd.strava.server.data.domain.User;
@@ -40,13 +41,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	
 	//WHEN WE ADD ANY CHALLENGE TO A USER WE WILL ADD ALSO HERE, SO LATER WE CAN USE IT FOR
 	//LOOKING FOR TOHSE THAT ARE ACTIVE
-	private List<Challenge> challangesList = new ArrayList<>();
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	
-	
-	
-	
-	
 	
 
 	public RemoteFacade(String[] lista) throws RemoteException, ParseException {	
@@ -56,20 +51,19 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		
 		
 		//CREATE THESE AS DEFAULT
-		challangesList.add(new Challenge("Challenge1",dateFormat.parse("2023-11-01"), dateFormat.parse("2023-11-30"),
+		ChallengeDAO.getInstance().store(new Challenge("Challenge1",dateFormat.parse("2023-11-01"), dateFormat.parse("2023-11-30"),
 				10.0, 15.0, "Running"));
 		
-		challangesList.add(new Challenge ("Challenge2", dateFormat.parse("2023-11-10"), dateFormat.parse("2023-12-05"), 8.0, 12.0, "Cycling"));
+		ChallengeDAO.getInstance().store(new Challenge ("Challenge2", dateFormat.parse("2023-11-10"), dateFormat.parse("2023-12-05"), 8.0, 12.0, "Cycling"));
 		
-		challangesList.add(new Challenge("Challenge3",dateFormat.parse("2023-09-30"),dateFormat.parse("2023-12-01"), 10.0, 15.0, "Running"));
+		ChallengeDAO.getInstance().store(new Challenge("Challenge3",dateFormat.parse("2023-09-30"),dateFormat.parse("2023-12-01"), 10.0, 15.0, "Running"));
 		
-		challangesList.add(new Challenge("Challenge2", dateFormat.parse("2023-09-05"), dateFormat.parse("2023-10-10"), 8.0, 12.0,  "Cycling"));
+		ChallengeDAO.getInstance().store(new Challenge("Challenge2", dateFormat.parse("2023-09-05"), dateFormat.parse("2023-10-10"), 8.0, 12.0,  "Cycling"));
 		
 		
-		loginService.getRegistrationState().put("jon.lasa@opendeusto.es",
-				new User("jon","44f878afe53efc66b76772bd845eb65944ed8232","jon.lasa@opendeusto.es", new Date(), 1,1,1,1,"FACEBOOK"));
+		loginService.regist(new User("jon","44f878afe53efc66b76772bd845eb65944ed8232","jon.lasa@opendeusto.es", new Date(), 1,1,1,1,"FACEBOOK"));
 		
-		loginService.getRegistrationState().put("iker.ruesgas@opendeusto.es",
+		loginService.regist(
 				new User("iker","e165f1f439f2c92b7fd8f906c98f84677a6b45bb","iker.ruesgas@opendeusto.es", new Date(), 1,1,1,1,"FACEBOOK"));
 	}
 	
@@ -123,7 +117,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		
 		//Get Challenges (look if they are active, we delegate to the app service)
 		// using actionAppService 
-		List<Challenge> challengesActive = actionService.getActiveChallenges(challangesList);
+		List<Challenge> challengesActive = actionService.getActiveChallenges();
 		
 		if (challengesActive != null) {
 			List<ChallengeDTO> challengesActiveDTO = new ArrayList<ChallengeDTO> ();
@@ -191,9 +185,9 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		System.out.println("RemoteFacade -- Accept active challenge call: "+token+" accepts "+name);
 		User user = userState.get(token);
 		
-		List<Challenge> challengesActive = actionService.getActiveChallenges(challangesList);
+		List<Challenge> challengesActive = actionService.getActiveChallenges();
 		
-		Challenge challengeAdd = actionService.acceptChallenge(name, challengesActive);
+		Challenge challengeAdd = actionService.acceptChallenge(name);
 	
 		//IT IT EXISTS WE ADD IT 
 		if ( challengeAdd == null) {			

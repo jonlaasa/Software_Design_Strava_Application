@@ -94,25 +94,7 @@ public class Session {
 		return "Session [title=" + title + ", sportType=" + sportType + ", distance=" + distance + ", startDate="
 				+ startDate + ", startHour=" + startHour + ", duration=" + duration + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 
 }

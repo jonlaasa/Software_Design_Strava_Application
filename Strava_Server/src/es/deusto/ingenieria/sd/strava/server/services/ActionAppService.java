@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import es.deusto.ingenieria.sd.strava.server.data.dao.ChallengeDAO;
 import es.deusto.ingenieria.sd.strava.server.data.domain.Challenge;
 import es.deusto.ingenieria.sd.strava.server.data.domain.Session;
 import es.deusto.ingenieria.sd.strava.server.data.domain.User;
@@ -12,12 +13,10 @@ import es.deusto.ingenieria.sd.strava.server.data.domain.User;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
-
-
-
 public class ActionAppService {
 
-	public Challenge acceptChallenge(String name, List<Challenge> listChallenges) {
+	public Challenge acceptChallenge(String name) {
+		List<Challenge> listChallenges = ChallengeDAO.getInstance().findAll();
 		Challenge challengeAdd = null;
 		for (Challenge chall : listChallenges) {
 		    
@@ -30,8 +29,9 @@ public class ActionAppService {
 	}
 	
 	
-	public List<Challenge> getActiveChallenges(List<Challenge> listChallenges) {
+	public List<Challenge> getActiveChallenges() {
 	    List<Challenge> challengeActive = new ArrayList<Challenge>();
+	    List<Challenge> listChallenges = ChallengeDAO.getInstance().findAll();
 
 	    // FORMAT "yyyy-MM-dd"
 	    //NECESITA CAMBIOS
