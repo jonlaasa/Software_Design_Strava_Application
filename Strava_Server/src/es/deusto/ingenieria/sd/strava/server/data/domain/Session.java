@@ -3,17 +3,16 @@ package es.deusto.ingenieria.sd.strava.server.data.domain;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
 
 import org.datanucleus.api.jpa.annotations.DatastoreId;
 
 
 @Entity
-@DatastoreId
 public class Session {
 	
 	
-	
+	@Id
 	private String title;
 	private String sportType;
 	private double distance;
@@ -23,6 +22,8 @@ public class Session {
 	
 	private String startHour;
 	private double duration;
+	@ManyToOne
+    private User user;
 	
 	
 	

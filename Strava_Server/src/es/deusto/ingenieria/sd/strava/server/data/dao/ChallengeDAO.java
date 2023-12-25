@@ -24,6 +24,7 @@ public class ChallengeDAO extends DataAccessObjectBase implements IDataAccessObj
 		return instance;
 	}	
 	
+	
 	@Override
 	public void store(Challenge object) {
 		Challenge storedObject = instance.find(object.getName());

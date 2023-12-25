@@ -54,17 +54,16 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		ChallengeDAO.getInstance().store(new Challenge("Challenge1",dateFormat.parse("2023-11-01"), dateFormat.parse("2023-11-30"),
 				10.0, 15.0, "Running"));
 		
+			
 		ChallengeDAO.getInstance().store(new Challenge ("Challenge2", dateFormat.parse("2023-11-10"), dateFormat.parse("2023-12-05"), 8.0, 12.0, "Cycling"));
 		
 		ChallengeDAO.getInstance().store(new Challenge("Challenge3",dateFormat.parse("2023-09-30"),dateFormat.parse("2023-12-01"), 10.0, 15.0, "Running"));
+				
 		
-		ChallengeDAO.getInstance().store(new Challenge("Challenge2", dateFormat.parse("2023-09-05"), dateFormat.parse("2023-10-10"), 8.0, 12.0,  "Cycling"));
+		//loginService.regist(new User("jon","44f878afe53efc66b76772bd845eb65944ed8232","jon.lasa@opendeusto.es", new Date(), 1,1,1,1,"FACEBOOK"));
 		
-		
-		loginService.regist(new User("jon","44f878afe53efc66b76772bd845eb65944ed8232","jon.lasa@opendeusto.es", new Date(), 1,1,1,1,"FACEBOOK"));
-		
-		loginService.regist(
-				new User("iker","e165f1f439f2c92b7fd8f906c98f84677a6b45bb","iker.ruesgas@opendeusto.es", new Date(), 1,1,1,1,"FACEBOOK"));
+		//loginService.regist(
+				//new User("iker","e165f1f439f2c92b7fd8f906c98f84677a6b45bb","iker.ruesgas@opendeusto.es", new Date(), 1,1,1,1,"FACEBOOK"));
 	}
 	
 	@Override

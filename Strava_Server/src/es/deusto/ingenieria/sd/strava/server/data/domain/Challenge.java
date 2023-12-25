@@ -5,14 +5,18 @@ import java.util.Date;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.datanucleus.api.jpa.annotations.DatastoreId;
 
 
 @Entity
-@DatastoreId
+
 public class Challenge {
-	
+	@Id
 	private String name;
 	
 	//YYYY-MM-DD FORMAT
@@ -21,6 +25,8 @@ public class Challenge {
 	private double goal;
 	private double distance;
 	private String sportType;
+	@ManyToOne
+    private User user;
 	public Challenge(String name, Date startDate, Date endDate, double distance, double goal, String sportType) {
 		super();
 		this.name = name;

@@ -12,7 +12,7 @@
         <exclude-unlisted-classes/>
 
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/StravaDB?verifyServerCertificate=false&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/stravadb?verifyServerCertificate=false&amp;useSSL=true&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>
             <property name="javax.persistence.jdbc.user" value="strava_user" />
             <property name="javax.persistence.jdbc.password" value="YES"/>
             <property name="datanucleus.schema.autoCreateAll" value="true"/>

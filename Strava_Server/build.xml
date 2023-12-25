@@ -46,15 +46,19 @@
 		<jar destfile="${dist.dir}/${export.file}" basedir="${bin.dir}" includes="**/remote/I**.class, **/dto/**.class"/>
 	</target>
 	
-	<target name="4.create-db-schema" depends="2.enhance-classes" description="Creates DB Schema on the DB Server">
-	        <taskdef name="schematool" classpathref="classpath" classname="org.datanucleus.store.schema.SchemaToolTask"/>
-	    	<schematool classpathref="classpath" persistenceUnit="StravaServer" mode="create" api="JPA" failonerror="true">
-	            <sysproperty key="log4j.configuration" value="file:${resources.dir}/log4j.properties"/>
-	            <fileset dir="${bin.dir}">
-	                <include name="**/*.class"/>
-	            </fileset>
-	        </schematool>
-	    </target>
+	
+	
+
+	<target name="4.create-db-schema" depends= "2.enhance-classes" description="Creates DB Schema on the DB Server">
+	    <taskdef name="schematool" classpathref="classpath" classname="org.datanucleus.store.schema.SchemaToolTask"/>
+	    <schematool classpathref="classpath" persistenceUnit="StravaServer" mode="create" api="JPA" failonerror="true">
+	        <sysproperty key="log4j.configuration" value="file:${resources.dir}/log4j.properties"/>
+	        <fileset dir="${bin.dir}">
+	            <include name="**/*.class"/>
+	        </fileset>
+	    </schematool>
+	</target>
+
 	
 	
 	<target name="5.delete-db-schema" depends="2.enhance-classes" description="Drops DB sechema from the DB Server">
