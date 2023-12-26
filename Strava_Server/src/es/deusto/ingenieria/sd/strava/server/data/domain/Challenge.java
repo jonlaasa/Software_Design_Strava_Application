@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.datanucleus.api.jpa.annotations.DatastoreId;
 
@@ -25,7 +26,7 @@ public class Challenge {
 	private double goal;
 	private double distance;
 	private String sportType;
-	@ManyToOne
+	@OneToOne
     private User user;
 	public Challenge(String name, Date startDate, Date endDate, double distance, double goal, String sportType) {
 		super();
@@ -81,6 +82,17 @@ public class Challenge {
 	}
 	public void setGoal(double goal) {
 		this.goal = goal;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

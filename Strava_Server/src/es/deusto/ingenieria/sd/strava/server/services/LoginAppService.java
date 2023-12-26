@@ -36,7 +36,8 @@ public class LoginAppService {
 				//CALL GATEWAY
 				Factory.getInstance(listo).createGateway(user.getProvider()).register(user.getEmail(), user.getPassword());
 			
-				UserDAO.getInstance().store(u);
+				UserDAO.getInstance().store(user);
+				System.out.println("STORED");
 				return true;
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block

@@ -1,8 +1,6 @@
 package es.deusto.ingenieria.sd.strava.server.data.domain;
-
 import java.util.ArrayList;
 import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -175,8 +173,6 @@ public class User {
 		// TODO Auto-generated method stub
 		this.provider = provider;
 	}
-	
-	
 	
 	// IN ORDER TO PRINT IN A EASY WAY:
 	

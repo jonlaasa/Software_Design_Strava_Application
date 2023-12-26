@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.datanucleus.api.jpa.annotations.DatastoreId;
 
@@ -22,7 +23,7 @@ public class Session {
 	
 	private String startHour;
 	private double duration;
-	@ManyToOne
+	@OneToOne
     private User user;
 	
 	
@@ -95,7 +96,14 @@ public class Session {
 		return "Session [title=" + title + ", sportType=" + sportType + ", distance=" + distance + ", startDate="
 				+ startDate + ", startHour=" + startHour + ", duration=" + duration + "]";
 	}
+	
+	public User getUser() {
+		return user;
+	}
 
-
+	public void setUser(User user) {
+		this.user = user;
+		
+	}
 
 }

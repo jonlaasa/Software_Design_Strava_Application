@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.server.data.dao.ChallengeDAO;
+import es.deusto.ingenieria.sd.strava.server.data.dao.SessionDAO;
+import es.deusto.ingenieria.sd.strava.server.data.dao.UserDAO;
 import es.deusto.ingenieria.sd.strava.server.data.domain.Challenge;
 import es.deusto.ingenieria.sd.strava.server.data.domain.Session;
 import es.deusto.ingenieria.sd.strava.server.data.domain.User;
@@ -41,17 +43,20 @@ public class ActionAppService {
 	    
 	    for (Challenge chal : listChallenges) {
 	        // ObTAIN DATES
+	    	System.out.println(chal);
 	        Date startDate = chal.getStartDate();
 	        Date endDate = chal.getEndDate(); 
 
 	        try {
 	            // Parse DATES
 	            Date currentDate = sdf.parse(currentDateStr);
-	            
+	            System.out.println(currentDate);
 
 	            // CHECK IF ACTUAL
 	            if (currentDate.after(startDate) && currentDate.before(endDate)) {
 	                challengeActive.add(chal);
+	                System.out.println("AÑADIDO");
+	                System.out.println(chal);
 	            }
 	        } catch (ParseException e) {
 	            e.printStackTrace();
@@ -62,22 +67,23 @@ public class ActionAppService {
 	    return challengeActive;
 	}
 	
-	
-	
 	//ADD METHODS
 	
 	public User addChallenge(User user, Challenge challenge) {
 		user.getChallenges().add(challenge);
+		challenge.setUser(user);
+		ChallengeDAO.getInstance().store(challenge);
 		return user;
-	
 	}
 	
-
 	public User addSession(User user, Session session) {
 		user.getSessions().add(session);
+		session.setUser(user);
+		SessionDAO.getInstance().store(session);
 		return user;
-	
 	}
+	
+	
 	
 }
 
