@@ -5,10 +5,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-<<<<<<< HEAD
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-
+import javax.persistence.OneToMany;	
 @Entity
 public class User {	
 	
@@ -29,30 +27,6 @@ public class User {
 	
 	
 	@ManyToMany (targetEntity=Challenge.class, fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST})
-=======
-import javax.persistence.OneToMany;
-
-@Entity
-public class User {	
-	
-	private String name;
-	private String password;
-	
-	@Id
-	private String email;
-	private Date birthdate;
-	private double  weight;
-	private double height;
-	private double maxHRate;
-	private double rateHRest;
-	private String provider;
-	
-	@OneToMany(mappedBy="user", fetch= FetchType.EAGER, cascade = (CascadeType.ALL))
-	private ArrayList<Challenge> challenges = new ArrayList<>();
-	
-	
-	@OneToMany(mappedBy="user", fetch= FetchType.EAGER, cascade = (CascadeType.ALL))
->>>>>>> branch 'master' of https://github.com/jonlaasa/STRAVA_PT3.git
 	private ArrayList<Challenge> activeChallenges = new ArrayList<>();
 	
 	@OneToMany(mappedBy="user", fetch= FetchType.EAGER, cascade = (CascadeType.ALL))
