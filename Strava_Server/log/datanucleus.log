@@ -2250,6 +2250,7 @@ org.datanucleus.exceptions.NucleusUserException: Clase "es.deusto.ingenieria.sd.
 13:51:59,799 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 13:51:59,799 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 13:52:01,568 (main) WARN  [DataNucleus.MetaData] - Error en el analizo del archivo "file:/C:/SoftLabs/SD/sd-lab23-24/TW2/Strava_Server/resources/META-INF/persistence.xml" a la linea 5, columna 23 : cvc-elt.1.a: No se ha encontrado la declaración del elemento 'persistence'. - Por favor compruebe el DTD y la validad de este MetaData.
+<<<<<<< HEAD
 13:01:18,587 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 13:01:18,599 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 13:01:18,599 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
@@ -2360,3 +2361,5 @@ org.datanucleus.exceptions.NucleusUserException: Clase "es.deusto.ingenieria.sd.
 13:45:58,258 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 13:45:58,258 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 13:45:59,956 (main) WARN  [DataNucleus.MetaData] - Error en el analizo del archivo "file:/C:/SoftLabs/SD/sd-lab23-24/TW3/Strava_Server/resources/META-INF/persistence.xml" a la linea 5, columna 23 : cvc-elt.1.a: No se ha encontrado la declaración del elemento 'persistence'. - Por favor compruebe el DTD y la validad de este MetaData.
+=======
+>>>>>>> branch 'master' of https://github.com/jonlaasa/STRAVA_PT3.git

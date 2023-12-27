@@ -2,7 +2,12 @@
 <classpath>
 	<classpathentry kind="src" output="bin" path="src"/>
 	<classpathentry kind="var" path="JRE_LIB" rootpath="JRE_SRCROOT" sourcepath="JRE_SRC"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/SoftLabs/SD/sd-lab23-24/TW3/Facebook_Server/lib/json-20171018.jar"/>
 	<classpathentry kind="con" path="C:/SoftLabs/SD/sd-lab23-24/TW3/Facebook_Server/bin"/>
+=======
+	<classpathentry kind="lib" path="C:/SoftLabs/SD/sd-lab23-24/TW2/Facebook_Server/lib/json-20171018.jar"/>
+	<classpathentry kind="con" path="C:/SoftLabs/SD/sd-lab23-24/TW2/Facebook_Server/bin"/>
+>>>>>>> branch 'master' of https://github.com/jonlaasa/STRAVA_PT3.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>

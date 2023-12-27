@@ -2,9 +2,14 @@ package es.deusto.ingenieria.sd.strava.server;
 
 import java.rmi.Naming;
 
+<<<<<<< HEAD
 import es.deusto.ingenieria.sd.strava.server.remote.RemoteFacade;
 import es.deusto.ingenieria.sd.strava.server.remote.IRemoteFacade;
 
+=======
+import es.deusto.ingenieria.sd.strava.server.remote.IRemoteFacade;
+import es.deusto.ingenieria.sd.strava.server.remote.RemoteFacade;
+>>>>>>> branch 'master' of https://github.com/jonlaasa/STRAVA_PT3.git
 
 public class MainProgram {
 

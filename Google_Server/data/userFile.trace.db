@@ -235,9 +235,12 @@ The object is already closed [90007-214]
 2023-12-26 11:48:20 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: El objeto ya está cerrado
 The object is already closed [90007-214]
+<<<<<<< HEAD
 2023-12-27 13:25:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: El objeto ya está cerrado
 The object is already closed [90007-214]
 2023-12-27 13:25:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: El objeto ya está cerrado
 The object is already closed [90007-214]
+=======
+>>>>>>> branch 'master' of https://github.com/jonlaasa/STRAVA_PT3.git
