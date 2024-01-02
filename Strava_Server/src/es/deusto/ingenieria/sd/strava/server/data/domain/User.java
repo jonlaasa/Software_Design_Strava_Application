@@ -22,14 +22,17 @@ public class User {
 	private double rateHRest;
 	private String provider;
 	
-	@OneToMany(mappedBy="user", fetch= FetchType.EAGER, cascade = (CascadeType.ALL))
+	
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private ArrayList<Challenge> challenges = new ArrayList<>();
+
 	
 	
 	@ManyToMany (targetEntity=Challenge.class, fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST})
 	private ArrayList<Challenge> activeChallenges = new ArrayList<>();
 	
-	@OneToMany(mappedBy="user", fetch= FetchType.EAGER, cascade = (CascadeType.ALL))
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private ArrayList<Session> sessions = new ArrayList<>();
 	
 	

@@ -42,19 +42,10 @@ public class UserDemoApplication {
     CommandLineRunner demo(UserRepository repository) {
       return (args) -> {
           // INIT data ... some Users
-    	    	  
-
-    	  User jon = new User ("jon.lasa@opendeusto.es", "44f878afe53efc66b76772bd845eb65944ed8232");
-    	  User iker = new User ("iker.ruesgas@opendeusto.es", "e165f1f439f2c92b7fd8f906c98f84677a6b45bb");
-    	 
-    	  repository.save(jon);
-    	  repository.save(iker);
-    
-        log.info("Sample users created"); 
     	  
-    	log.info("USER Services AVAILABLE ...");
-
-
+    	  
+    	  
+    	  
       };
     }
 }

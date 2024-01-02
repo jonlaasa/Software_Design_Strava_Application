@@ -71,23 +71,30 @@ public class ActionAppService {
 	
 	//ADD METHODS
 	
+	
+	
+	
 	public User addChallenge(User user, Challenge challenge) {
-		user.getChallenges().add(challenge);
 		challenge.setUser(user);
 		ChallengeDAO.getInstance().store(challenge);
+		System.out.println("STORED CHALLENGE");
+		new MailSender(user.getEmail()).sendMessage("Created challenge with name: " + challenge.getName());
 		return user;
 	}
 	
 	public User addSession(User user, Session session) {
-		user.getSessions().add(session);
 		session.setUser(user);
 		SessionDAO.getInstance().store(session);
+		System.out.println("STORED SESSION");
+		new MailSender(user.getEmail()).sendMessage("Created session with title: " + session.getTitle());
 		return user;
 	}
 	
 	
 	
 }
+
+
 
 
 

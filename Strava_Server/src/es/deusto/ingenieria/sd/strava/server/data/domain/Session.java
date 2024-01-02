@@ -1,9 +1,13 @@
 package es.deusto.ingenieria.sd.strava.server.data.domain;
 
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.datanucleus.api.jpa.annotations.DatastoreId;
@@ -23,19 +27,13 @@ public class Session {
 	
 	private String startHour;
 	private double duration;
-	@OneToOne
-    private User user;
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private User user;
+
 	public Session(String title, String sportType, double distance, Date startDate, String startHour,
-			double duration) {
+			double duration,User user) {
 		super();
 		this.title = title;
 		this.sportType = sportType;
@@ -43,6 +41,7 @@ public class Session {
 		this.startDate = startDate;
 		this.startHour = startHour;
 		this.duration = duration;
+		this.user = user;
 	}
 
 	

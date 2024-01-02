@@ -3,12 +3,14 @@ package es.deusto.ingenieria.sd.strava.server.data.domain;
 
 import java.util.Date;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.datanucleus.api.jpa.annotations.DatastoreId;
@@ -26,9 +28,11 @@ public class Challenge {
 	private double goal;
 	private double distance;
 	private String sportType;
-	@OneToOne
-    private User user;
-	public Challenge(String name, Date startDate, Date endDate, double distance, double goal, String sportType) {
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private User user;
+
+	public Challenge(String name, Date startDate, Date endDate, double distance, double goal, String sportType, User user) {
 		super();
 		this.name = name;
 		this.startDate = startDate;
@@ -36,6 +40,8 @@ public class Challenge {
 		this.distance = distance;
 		this.goal=goal;
 		this.sportType = sportType;
+		this.user = user;
+		
 	}
 
 	
